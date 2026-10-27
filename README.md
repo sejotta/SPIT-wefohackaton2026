@@ -29,6 +29,14 @@ The idea is simple: if a fire is detected while it is still small — one that h
 
 The project was presented at the **WED 2026 Hackathon**, hosted by **EINA (University of Zaragoza)**, with team **InnoviZar**.
 
+<p align="center">
+  <a href="docs/SPIT-cartel.pdf">
+    <img src="media/cartel.jpg" alt="Hackathon poster for S.P.I.T. presented at EINA" width="60%">
+  </a>
+  <br>
+  <sub>Hackathon poster presented at EINA. <a href="docs/SPIT-cartel.pdf">Open the PDF</a>.</sub>
+</p>
+
 ## The problem
 
 Climate change is lengthening the fire season and drying out fuel. In Spain, 2025 left **more than 390,000 hectares burned**, 7 people dead, and 30,000 evacuated. That is an area comparable to the province of Málaga.
