@@ -2,186 +2,168 @@
 
 # S.P.I.T.
 
-### Sistema de Prevención de Incendios Tempranos
+### Early Wildfire Prevention System
 
-*Early Wildfire Prevention System*
-
-[![Hackathon WED 2026](https://img.shields.io/badge/Hackathon-WED%202026-D97B3A?style=flat-square)](#el-proyecto)
-[![Equipo InnoviZar](https://img.shields.io/badge/Equipo-InnoviZar-596B3A?style=flat-square)](#el-equipo)
-[![ODS 9 · 13 · 15](https://img.shields.io/badge/ODS-9%20%C2%B7%2013%20%C2%B7%2015-2E7D32?style=flat-square)](#ods)
-[![Licencia](https://img.shields.io/badge/Licencia-Todos%20los%20derechos%20reservados-8B1E1E?style=flat-square)](LICENSE)
+[![Hackathon WED 2026](https://img.shields.io/badge/Hackathon-WED%202026-D97B3A?style=flat-square)](#the-project)
+[![Team InnoviZar](https://img.shields.io/badge/Team-InnoviZar-596B3A?style=flat-square)](#the-team)
+[![SDGs 9 · 13 · 15](https://img.shields.io/badge/SDGs-9%20%C2%B7%2013%20%C2%B7%2015-2E7D32?style=flat-square)](#sdgs)
+[![License](https://img.shields.io/badge/License-All%20rights%20reserved-8B1E1E?style=flat-square)](LICENSE)
 
 <a href="media/SPIT-presentacion.mp4">
-  <img src="media/spit-preview.gif" alt="Aspersores creando una franja húmeda en un bosque de pinos" width="100%">
+  <img src="media/spit-preview.gif" alt="Sprinklers creating a wet firebreak in a pine forest" width="100%">
 </a>
 
-**Detectar el fuego en los primeros minutos. Mojar la línea por la que iba a avanzar.**
+**Detect the fire in its first minutes. Wet the line it was about to cross.**
 
-[▶ Ver el vídeo completo (5 min)](media/SPIT-presentacion.mp4) · [Ver el cartel](media/cartel.jpg) · [Leer la memoria](docs/SPIT-documento-tecnico.pdf)
+[▶ Watch the full video (5 min)](media/SPIT-presentacion.mp4) · [View the poster](media/cartel.jpg) · [Read the technical brief](docs/SPIT-documento-tecnico.pdf)
 
 </div>
 
 ---
 
-## El proyecto
+## The project
 
-**S.P.I.T.** es un sistema de **prevención temprana de incendios forestales** para zonas de alto riesgo. Combina dos cosas que normalmente van por separado: **ojos** que vigilan el monte las 24 horas y **manos** que actúan sobre el terreno en cuanto hay una señal de fuego.
+**S.P.I.T.** is an **early wildfire prevention system** for high-risk areas. It combines two things that usually work separately: **eyes** that watch the forest 24 hours a day and **hands** that act on the ground as soon as there is a sign of fire.
 
-La idea es sencilla: si el incendio se detecta cuando todavía es un conato —un fuego que acaba de empezar— y se frena la línea por la que iba a avanzar, se gana el recurso más valioso de una emergencia: **tiempo**.
+The idea is simple: if a fire is detected while it is still small — one that has just started — and the line it was about to cross is wetted, the most valuable resource in an emergency is gained: **time**.
 
-El proyecto se presentó en el **hackathon WED 2026** de la **EINA (Universidad de Zaragoza)** con el equipo **InnoviZar**.
+The project was presented at the **WED 2026 Hackathon** at **EINA (University of Zaragoza)** with team **InnoviZar**.
 
-## El problema
+## The problem
 
-El cambio climático está alargando la temporada de incendios y secando el combustible. En España, 2025 dejó **más de 390.000 hectáreas quemadas**, 7 personas fallecidas y 30.000 evacuadas. Es una superficie comparable a la provincia de Málaga.
+Climate change is lengthening the fire season and drying out fuel. In Spain, 2025 left **more than 390,000 hectares burned**, 7 people dead, and 30,000 evacuated. That is an area comparable to the province of Málaga.
 
-El problema no es solo la cantidad de fuego: es la velocidad a la que se convierte en una emergencia. Un cortafuegos tradicional detiene el avance entre el **60 % y el 65 %** de las veces. En casi cuatro de cada diez casos, el fuego lo cruza.
+The problem is not only the amount of fire: it is the speed at which it becomes an emergency. A traditional firebreak stops the spread **60–65%** of the time. In almost four out of ten cases, the fire crosses it.
 
-Cuando llegan los medios aéreos y terrestres, el incendio ya suele tener la delantera. La ventana en la que se decide todo es muy corta: **los primeros minutos**.
+By the time aerial and ground crews arrive, the fire usually has the upper hand. The window in which everything is decided is very short: **the first minutes**.
 
-<img src="media/05-incendio.jpg" alt="Incendio forestal visto desde el aire" width="100%">
+<img src="media/05-incendio.jpg" alt="Wildfire seen from the air" width="100%">
 
-<sub>Cuanto más pequeño es el fuego, más barato es pararlo.</sub>
-<sub>Datos: guión y memoria del proyecto; bibliografía completa en la <a href="docs/SPIT-documento-tecnico.pdf">memoria técnica</a>.</sub>
+<sub>The smaller the fire, the cheaper it is to stop.</sub>
+<sub>Data: project script and technical brief; full bibliography in the <a href="docs/SPIT-documento-tecnico.pdf">technical brief</a>.</sub>
 
-## Cómo funciona
+## How it works
 
-Dos fases: una **mira** y la otra **actúa**. Todo pasa por la central de bomberos, que recibe el aviso, lo valida y decide.
+Two phases: one **watches** and the other **acts**. Everything goes through the fire station, which receives the alert, validates it, and decides.
 
 ```mermaid
 flowchart LR
-    D["Dron<br/>RGB + térmica"] -- "aviso 5G" --> C["Central de bomberos"]
-    C -- "orden" --> P["PLC"]
-    P --> B["Bomba de cavidad progresiva"]
-    B --> A["Aspersores"]
-    A --> F["Cortafuegos húmedo"]
+    D["Drone<br/>RGB + thermal"] -- "5G alert" --> C["Fire station"]
+    C -- "command" --> P["PLC"]
+    P --> B["Progressive cavity pump"]
+    B --> A["Sprinklers"]
+    A --> F["Wet firebreak"]
 ```
 
-### Fase 1 · Vigilancia y aviso
+### Phase 1 · Surveillance and alert
 
-**1. Patrulla.** Drones UAV vuelan por turnos, 24 horas al día, sobre las zonas con más probabilidad de ignición. Siguen rutas automáticas a unos **300 m** de altura y cubren del orden de **24 hectáreas por pasada**. Cada dron tiene unos **45 minutos** de autonomía; hay estaciones de recarga automática en los puntos de control.
+**1. Patrol.** UAV drones fly in shifts, 24 hours a day, over the areas most likely to ignite. They follow automatic routes at about **300 m** altitude and cover around **24 hectares per pass**. Each drone has about **45 minutes** of endurance; automatic recharging stations are placed at control points.
 
-**2. Detecta.** Cada dron lleva cámara **RGB y térmica**. A bordo corre un modelo de IA (TinyML: inteligencia artificial que cabe en el propio dron) entrenado con conjuntos de datos especializados como PyroNear2024, FAME 3 y AUVs-FDDB, además de vuelos propios. Busca calor anómalo y columnas de humo.
+**2. Detect.** Each drone carries **RGB and thermal** cameras. An on-board AI model (TinyML: artificial intelligence that fits on the drone itself) is trained on specialized datasets such as PyroNear2024, FAME 3, and AUVs-FDDB, plus its own flight data. It looks for anomalous heat and smoke plumes.
 
-**3. Avisa.** El dron no transmite vídeo continuamente: envía solo el aviso por **5G** cuando algo le parece un conato. Eso ahorra datos y, sobre todo, tiempo de respuesta. En la central, una persona confirma el aviso antes de actuar.
+**3. Alert.** The drone does not stream video continuously: it sends only the alert over **5G** when something looks like a small fire. That saves data and, above all, response time. At the station, a person confirms the alert before acting.
 
-> El dron no manda vídeo: manda un aviso. Lo importante no es ver el fuego, sino saber dónde está cuanto antes.
+> The drone does not send video: it sends an alert. What matters is not seeing the fire, but knowing where it is as soon as possible.
 
-<img src="media/01-deteccion.jpg" alt="Dron de ala fija sobre un valle forestal con una columna de humo marcada como incendio detectado" width="100%">
+<img src="media/01-deteccion.jpg" alt="Fixed-wing drone over a forested valley with a smoke plume marked as a detected wildfire" width="100%">
 
-<sub>El dron detecta una columna de humo y manda la alerta. La decisión sigue siendo humana.</sub>
+<sub>The drone detects a smoke plume and sends the alert. The decision remains human.</sub>
 
-### Fase 2 · Cortafuegos húmedo
+### Phase 2 · Wet firebreak
 
-**1. Se confirma el fuego.** La central valida la alerta y activa el protocolo.
+**1. Confirmation.** The station validates the alert and activates the protocol.
 
-**2. Se moja la línea.** Una red de aspersores agrícolas, instalada en cortafuegos que ya existen, rocía los laterales del sector. Para 10 ha: **400 aspersores cada 3,2 m** y **1,25 km** de perímetro.
+**2. The line is wetted.** A network of agricultural sprinklers, installed along existing firebreaks, sprays the sides of the sector. For 10 ha: **400 sprinklers every 3.2 m** and **1.25 km** of perimeter.
 
-**3. Se dosifica el agente.** El agua se mezcla con **EcoFire**, un agente biodegradable, en depósitos de **10.000 L**. Bombas de cavidad progresiva lo impulsan entre **7 y 48 bar** según el desnivel. Un **PLC** —el controlador industrial— vigila la presión y el caudal con sensores para mantener el flujo estable y detectar fallos.
+**3. The agent is dosed.** Water is mixed with **EcoFire**, a biodegradable agent, in **10,000 L** tanks. Progressive cavity pumps push it at **7–48 bar** depending on elevation. A **PLC** — the industrial controller — monitors pressure and flow with sensors to keep the flow stable and detect failures.
 
-**4. Se confina.** La franja mojada baja la temperatura, empapa el combustible y corta su continuidad. El fuego encuentra una línea mucho más difícil de cruzar y los equipos ganan un corredor de trabajo.
+**4. The fire is confined.** The wet strip lowers the temperature, soaks the fuel, and breaks its continuity. The fire faces a line that is much harder to cross, and crews gain a working corridor.
 
-<img src="media/03-cortafuegos.jpg" alt="Cortafuegos con aspersores y una columna de humo en el bosque" width="100%">
+<img src="media/03-cortafuegos.jpg" alt="Firebreak with sprinklers and a smoke plume in the forest" width="100%">
 
-<sub>La franja tratada no es una pared: es una línea que el fuego cruza peor y más despacio.</sub>
+<sub>The treated strip is not a wall: it is a line the fire crosses worse and more slowly.</sub>
 
-<img src="media/02-control.jpg" alt="Esquema de control con PLC, bomba, aspersores, caudalímetros y sensores" width="100%">
+<img src="media/02-control.jpg" alt="Control diagram with PLC, pump, sprinklers, flowmeters, and sensors" width="100%">
 
-<sub>Esquema de control: PLC, bomba, aspersores, caudalímetros y sensores de presión.</sub>
+<sub>Control diagram: PLC, pump, sprinklers, flowmeters, and pressure sensors.</sub>
 
-**No sustituye a los bomberos.** Les da minutos. La diferencia entre un conato y un incendio de nivel 2 o 3 suele estar en esos primeros minutos.
+**It does not replace firefighters.** It gives them minutes. The difference between a small fire and a level 2 or 3 fire is often those first minutes.
 
-## Por qué funciona
+## Why it works
 
-Para que un incendio avance hacen falta calor, combustible y oxígeno. S.P.I.T. no puede quitarle el oxígeno a un bosque, pero sí atacar los otros dos.
+A fire needs heat, fuel, and oxygen to spread. S.P.I.T. cannot take oxygen out of a forest, but it can attack the other two.
 
-**Agua + EcoFire** absorben calor (el agua evapora) y empapan el combustible, que tarda más en prender. El agente también penetra en los materiales porosos y reduce la continuidad del combustible. Es la misma idea que mojar el perímetro de una hoguera, pero a escala de 1,25 km.
+**Water + EcoFire** absorb heat (water evaporates) and soak the fuel, which takes longer to ignite. The agent also penetrates porous materials and reduces fuel continuity. It is the same idea as wetting the edge of a campfire, but at the scale of 1.25 km.
 
-EcoFire es biodegradable y evita las espumas con PFAS, que dejan contaminantes persistentes en el suelo y el agua. Es más denso y viscoso que el agua (**1,145 kg/m³** y **27,40 mPa·s**), así que el diseño usa bombas de cavidad progresiva, que mantienen el caudal con líquidos viscosos.
+EcoFire is biodegradable and avoids PFAS foams, which leave persistent contaminants in soil and water. It is denser and more viscous than water (**1.145 kg/m³** and **27.40 mPa·s**), so the design uses progressive cavity pumps, which maintain flow with viscous liquids.
 
-El resultado estimado: la probabilidad de que el fuego cruce la franja baja del **60–65 %** a cerca del **20–30 %**. Además, la franja puede actuar como **corredor de vida**: una zona más segura por la que los bomberos pueden moverse y trabajar.
+The estimated result: the probability of fire crossing the strip drops from **60–65%** to around **20–30%**. The strip can also act as a **life corridor**: a safer area where firefighters can move and work.
 
-## El sistema en números
+## The system in numbers
 
-| Magnitud | Valor |
+| Metric | Value |
 |---|---|
-| Superficie protegida | 10 ha (100.000 m²) |
-| Aspersores | 400, separados 3,2 m |
-| Perímetro tratado | 1,25 km |
-| Aplicación | 3.160 L de EcoFire en 30 min |
-| Caudal | 105 L/min |
-| Presión | 7–48 bar según el desnivel |
-| Depósito nodriza | 10.000 L |
-| Drones | 2 · 45 min de autonomía · 300 m |
-| Cobertura | 24 ha por pasada |
-| Inversión estimada | 43.000 € · 4.300 €/ha |
-| Reducción de paso | del 60–65 % a ~20–30 % |
+| Protected area | 10 ha (100,000 m²) |
+| Sprinklers | 400, spaced 3.2 m apart |
+| Treated perimeter | 1.25 km |
+| Application | 3,160 L of EcoFire over 30 min |
+| Flow rate | 105 L/min |
+| Pressure | 7–48 bar depending on elevation |
+| Buffer tank | 10,000 L |
+| Drones | 2 · 45 min endurance · 300 m |
+| Coverage | 24 ha per pass |
+| Estimated investment | €43,000 · €4,300/ha |
+| Crossing reduction | from 60–65% to ~20–30% |
 
-<sub>Cifras de diseño para una parcela de 10 ha. Son estimaciones, no medidas de un despliegue real.</sub>
+<sub>Design figures for a 10 ha plot. They are estimates, not measurements from a real deployment.</sub>
 
-## ODS
+## SDGs
 
-S.P.I.T. se alinea con el **ODS 9** (industria, innovación e infraestructura), el **ODS 13** (acción por el clima) y el **ODS 15** (vida de ecosistemas terrestres).
+S.P.I.T. aligns with **SDG 9** (Industry, Innovation and Infrastructure), **SDG 13** (Climate Action), and **SDG 15** (Life on Land).
 
-## El equipo
+## The team
 
-<img src="media/04-equipo.jpg" alt="Los cuatro integrantes del equipo InnoviZar con sus acreditaciones del hackathon" width="100%">
+<img src="media/04-equipo.jpg" alt="The four members of Team InnoviZar wearing their hackathon badges" width="100%">
 
-**Equipo InnoviZar** · Hackathon WED 2026 · EINA, Universidad de Zaragoza
+**Team InnoviZar** · WED 2026 Hackathon · EINA, University of Zaragoza
 
-| Nombre | Formación |
+| Name | Field |
 |---|---|
-| **Daniela Rodríguez** | Ingeniería Mecánica |
-| **Ismael Al-Zurba** | Ingeniería Mecánica |
-| **Leyre Barrau** | Ingeniería de Diseño |
-| **Sergio Toro** | Ingeniería Electrónica |
+| **Daniela Rodríguez** | Mechanical Engineering |
+| **Ismael Al-Zurba** | Mechanical Engineering |
+| **Leyre Barrau** | Design Engineering |
+| **Sergio Toro** | Electronic Engineering |
 
-## Estado y alcance
+## Status and scope
 
-**S.P.I.T. es un concepto de ingeniería, no un producto desplegado.** Se presentó en el hackathon WED 2026 y este repositorio reúne la documentación y el material audiovisual. El código fuente no forma parte del repositorio.
+**S.P.I.T. is an engineering concept, not a deployed product.** It was presented at the WED 2026 Hackathon, and this repository gathers the documentation and audiovisual material. The source code is not part of the repository.
 
-Los datos son estimaciones de diseño y el vídeo es una simulación visual. El siguiente paso sería validar el sistema en campo, con un piloto en una parcela real y la coordinación de los servicios de extinción.
+The figures are design estimates, and the video is a visual simulation. The next step would be to validate the system in the field, with a pilot on a real plot and coordination with firefighting services.
 
-Si quieres retomarlo, colaborar o proponer una prueba, abre un [issue](https://github.com/sejotta/SPIT-wefohackaton2026/issues).
+If you want to pick it up, collaborate, or propose a trial, open an [issue](https://github.com/sejotta/SPIT-wefohackaton2026/issues).
 
-## Documentos
+## Documents
 
-| Documento | Contenido |
+| Document | Contents |
 |---|---|
-| [Memoria técnica](docs/SPIT-documento-tecnico.pdf) | 2 páginas, en inglés. Resumen del sistema, fundamentos y bibliografía. |
-| [Guión del vídeo](docs/SPIT-guion-video.pdf) | 12 páginas, español e inglés. El texto completo de la presentación. |
-| [Diagrama de control](docs/SPIT-diagrama-control.pdf) | Esquema de PLC, bomba, sensores, aspersores y comunicaciones. |
-| [Cartel del hackathon](docs/SPIT-cartel.pdf) | Póster presentado en la EINA. También disponible en [JPG](media/cartel.jpg). |
+| [Technical brief](docs/SPIT-documento-tecnico.pdf) | 2 pages, in English. System overview, rationale, and bibliography. |
+| [Video script](docs/SPIT-guion-video.pdf) | 12 pages, in Spanish and English. Full presentation script. |
+| [Control diagram](docs/SPIT-diagrama-control.pdf) | PLC, pump, sensors, sprinklers, and communications. |
+| [Hackathon poster](docs/SPIT-cartel.pdf) | Spanish-language poster presented at EINA. Also available as [JPG](media/cartel.jpg). |
 
-## Licencia
+## License
 
-© 2026 Daniela Rodríguez, Ismael Al-Zurba, Leyre Barrau y Sergio Toro. **Todos los derechos reservados.**
+© 2026 Daniela Rodríguez, Ismael Al-Zurba, Leyre Barrau, and Sergio Toro. **All rights reserved.**
 
-No se permite copiar, modificar, distribuir ni reutilizar este proyecto —textos, imágenes, vídeos, diagramas o diseño— sin permiso previo y por escrito. Si quieres usar o adaptar algo, abre un issue o contacta con [@sejotta](https://github.com/sejotta).
+No part of this project — text, images, videos, diagrams, or design — may be copied, modified, distributed, or reused without prior written permission. To use or adapt something, open an issue or contact [@sejotta](https://github.com/sejotta).
 
-[Leer la licencia completa](LICENSE).
+[Read the full license](LICENSE).
 
-<sub>EcoFire es una marca de sus respectivos titulares. Los logotipos de la Universidad de Zaragoza, la EINA, Naciones Unidas y la Agenda 2030 pertenecen a sus titulares.</sub>
-
----
-
-<details>
-<summary><strong>English summary</strong></summary>
-
-**S.P.I.T. (Early Wildfire Prevention System)** is a two-phase concept for high-risk forest interfaces:
-
-1. **Prevention and early warning** — UAVs patrol 24/7 with RGB + thermal cameras and on-board TinyML. Rather than streaming video, they send alerts over 5G to the fire station, where a person validates the event.
-2. **Action** — a remotely activated wet fuelbreak: sprinklers installed along existing firebreaks spray a biodegradable EcoFire solution, confining the fire while firefighters arrive.
-
-For a 10 ha area: ~400 sprinklers every 3.2 m, a 1.25 km perimeter, 3,160 L of EcoFire applied in 30 min at 105 L/min, 7–48 bar, and a 10,000 L buffer. Estimated cost: €43k (€4.3k/ha). The treated strip is expected to lower the probability of fire crossing from ~60–65% to ~20–30%.
-
-Concept project by Team InnoviZar (EINA, University of Zaragoza) for the WED 2026 hackathon. No source code is published. All rights reserved; copying or reuse requires prior written permission.
-
-</details>
+<sub>EcoFire is a trademark of its respective owners. The logos of the University of Zaragoza, EINA, the United Nations, and the 2030 Agenda belong to their respective owners.</sub>
 
 ---
 
 <p align="center">
-  <sub>Hecho en Zaragoza · Hackathon WED 2026 · EINA · Universidad de Zaragoza</sub><br>
-  <sub>© 2026 Equipo InnoviZar. Todos los derechos reservados.</sub>
+  <sub>Made in Zaragoza · WED 2026 Hackathon · EINA · University of Zaragoza</sub><br>
+  <sub>© 2026 Team InnoviZar. All rights reserved.</sub>
 </p>
