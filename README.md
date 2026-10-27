@@ -27,7 +27,7 @@
 
 The idea is simple: if a fire is detected while it is still small — one that has just started — and the line it was about to cross is wetted, the most valuable resource in an emergency is gained: **time**.
 
-The project was presented at the **WED 2026 Hackathon** at **EINA (University of Zaragoza)** with team **InnoviZar**.
+The project was presented at the **WED 2026 Hackathon**, hosted by **EINA (University of Zaragoza)**, with team **InnoviZar**.
 
 ## The problem
 
@@ -57,7 +57,7 @@ flowchart LR
 
 ### Phase 1 · Surveillance and alert
 
-**1. Patrol.** UAV drones fly in shifts, 24 hours a day, over the areas most likely to ignite. They follow automatic routes at about **300 m** altitude and cover around **24 hectares per pass**. Each drone has about **45 minutes** of endurance; automatic recharging stations are placed at control points.
+**1. Patrol.** Drones (UAVs) fly in shifts, 24 hours a day, over the areas most likely to ignite. They follow automatic routes at about **300 m** altitude and cover around **24 hectares per pass**. Each drone has about **45 minutes** of endurance; automatic recharging stations are placed at control points.
 
 **2. Detect.** Each drone carries **RGB and thermal** cameras. An on-board AI model (TinyML: artificial intelligence that fits on the drone itself) is trained on specialized datasets such as PyroNear2024, FAME 3, and AUVs-FDDB, plus its own flight data. It looks for anomalous heat and smoke plumes.
 
